@@ -1,0 +1,7 @@
+%ifndef errors_h
+%define errors_h
+
+ROUTINE CHK_STAT(rec_stat: INTEGER) FROM errors
+ROUTINE karelError(errStr : STRING; errorType : INTEGER) FROM errors
+
+%endif --errors_h

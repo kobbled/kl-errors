@@ -1,0 +1,34 @@
+PROGRAM errors
+%NOLOCKGROUP
+
+%INCLUDE errors.klt
+%INCLUDE errors.klh
+
+BEGIN
+END errors
+--### Private #####
+
+--### Public #####
+
+ROUTINE CHK_STAT
+BEGIN
+  IF(rec_stat <> SUCCESS) AND (rec_stat <> EXISTS) THEN
+      POST_ERR(rec_stat,'',0, ER_ABORT)
+  ENDIF
+END CHK_STAT
+
+
+ROUTINE karelError
+-- Error Type:
+-- 0 : WARNING
+-- 1 : WARNING + SHOWN IN HISTORY
+-- 2 : ABORT
+------------------------------------------
+BEGIN
+  CLR_IO_STAT(TPDISPLAY)
+  WRITE TPDISPLAY(CR,CR, errStr)
+  WRITE TPDISPLAY(CR,CR,CR,CR,CR,CR,CR,CR)
+  FORCE_SPMENU(TP_PANEL, SPI_TPUSER, 1)
+  POST_ERR(122043, '', 0 , errorType)
+END karelError
+

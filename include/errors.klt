@@ -1,0 +1,12 @@
+%ifndef errors_t
+%define errors_t
+
+CONST
+  ER_WARN          = 0 -- warning no change in task execution
+  ER_WARN_STP      = 1 -- pause all taks and stop all motion 
+  ER_ABORT         = 2 -- abort all tasks and cancel
+  SUCCESS          = 0 -- success constant
+  EXISTS           = 7015 -- Already exists code
+
+
+%endif --errors_t
