@@ -24,11 +24,40 @@ ROUTINE karelError
 -- 1 : WARNING + SHOWN IN HISTORY
 -- 2 : ABORT
 ------------------------------------------
+VAR
+  i : INTEGER
+  rows : INTEGER
+  s_len, srt, ed : INTEGER
+  msg : ARRAY[MAX_DISP_ROW] OF STRING[MAX_DISP_LNG]
 BEGIN
   CLR_IO_STAT(TPDISPLAY)
-  WRITE TPDISPLAY(CR,CR, errStr)
-  WRITE TPDISPLAY(CR,CR,CR,CR,CR,CR,CR,CR)
+  WRITE TPDISPLAY(CR)
+  s_len = STR_LEN(errStr)
+  --find out how many rows you need to
+  --fit message on display
+  rows = TRUNC(s_len/MAX_DISP_LNG) + 1
+  --create rolling window over string
+  --printing each block of MAX_DISP_LNG
+  --to a line
+  FOR i=1 TO rows DO
+    srt = (i-1)*MAX_DISP_LNG + 1
+    IF ((i*MAX_DISP_LNG) < s_len) THEN
+      ed = i*MAX_DISP_LNG
+      WRITE TPDISPLAY(CR, SUB_STR(errStr, srt, ed))
+    ELSE IF NOT (s_len MOD MAX_DISP_LNG = 0) THEN
+      WRITE TPDISPLAY(CR, SUB_STR(errStr, srt, s_len))
+    ENDIF
+    ENDIF
+  ENDFOR
+  --fill the remaining lines (if any) with a CR
+  IF rows < MAX_DISP_ROW THEN
+    FOR i=rows TO MAX_DISP_ROW DO
+      WRITE TPDISPLAY(CR)
+    ENDFOR
+  ENDIF
+
   FORCE_SPMENU(TP_PANEL, SPI_TPUSER, 1)
-  POST_ERR(122043, '', 0 , errorType)
+  POST_ERR(stat, '', 0 , errorType)
+  
 END karelError
 

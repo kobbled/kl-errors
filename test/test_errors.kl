@@ -1,0 +1,13 @@
+PROGRAM test_errors
+%NOLOCKGROUP
+
+%include klersys.kl
+
+%include errors.klt
+%include errors.klh
+
+BEGIN
+  karelError(ER_HOLD,'This message is too long to fit on one line.'+ &
+             ' This string should be automatically split apart '+ & 
+             'to fit on the display.', ER_WARN)
+END test_errors

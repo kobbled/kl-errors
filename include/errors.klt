@@ -1,12 +1,41 @@
 %ifndef errors_t
 %define errors_t
 
+--array errors
+%define ARR_LEN_MISMATCH 12304
+%define INVALID_INDEX 16024
+%define VAR_TOO_BIG 16032
+--value errors
+%define VAL_OUT_OF_RNG 16028
+%define VAR_UNINIT 12311
+%define INVALID_TYPE_CODE 12319
+%define STR_TOO_LONG 22047
+%define INVALID_STRING 12333
+--type errors
+%define EXPECTED_REAL 22032
+%define EXPECTED_INT 22033
+%define VECTOR_INVALID 12360
+--pos errors
+%define POS_TYPE_MISMATCH 60032
+%define INVALID_CONFIG 15121
+%define GROUP_MASK_BAD 21018
+--file errors
+%define CANT_READ 21016
+%define CANT_WRITE 21015
+--task errors
+%define RUN_TASK_FAILED 24011
+%define PROGRAM_TIMEDOUT 24028
+--tpe errors
+%define TPE_UPDATE_FAILED 112080
+
 CONST
   ER_WARN          = 0 -- warning no change in task execution
   ER_WARN_STP      = 1 -- pause all taks and stop all motion 
   ER_ABORT         = 2 -- abort all tasks and cancel
   SUCCESS          = 0 -- success constant
   EXISTS           = 7015 -- Already exists code
+  MAX_DISP_LNG     = 40
+  MAX_DISP_ROW     = 8
 
 
 %endif --errors_t
