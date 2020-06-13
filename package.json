@@ -13,5 +13,8 @@
   ],
   "tests" : [
     "test/test_errors.kl"
+  ],
+  "depends" : [
+    "Strings"
   ]
 }

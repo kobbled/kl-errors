@@ -35,7 +35,6 @@ CONST
   SUCCESS          = 0 -- success constant
   EXISTS           = 7015 -- Already exists code
   MAX_DISP_LNG     = 40
-  MAX_DISP_ROW     = 8
 
 
 %endif --errors_t
