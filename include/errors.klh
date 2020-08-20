@@ -5,5 +5,6 @@ ROUTINE CHK_STAT(rec_stat: INTEGER) FROM errors
 ROUTINE karelError(stat: INTEGER; errStr : STRING; errorType : INTEGER) FROM errors
 ROUTINE SET_UNINIT_I(progname : STRING; varname :STRING) FROM errors
 ROUTINE SET_UNINIT_R(progname : STRING; varname :STRING) FROM errors
+ROUTINE SET_UNINIT_B(progname : STRING; varname :STRING) FROM errors
 
 %endif --errors_h

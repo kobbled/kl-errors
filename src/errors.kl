@@ -60,4 +60,15 @@ ROUTINE SET_UNINIT_R
     IF STATUS <> 0 THEN POST_ERR(STATUS,'',0,2);ENDIF
   END SET_UNINIT_R
 
+ROUTINE SET_UNINIT_B
+  VAR
+    entry : INTEGER
+    status: INTEGER
+    uninitBOL : ARRAY[1] OF BOOLEAN
+  BEGIN
+    SET_VAR(entry,progname,varname,uninitBOL[1],STATUS)
+    IF STATUS = 12311 THEN STATUS = 0 ; ENDIF -- 12311 uninitialized data error :-)
+    IF STATUS <> 0 THEN POST_ERR(STATUS,'',0,2);ENDIF
+  END SET_UNINIT_B
+
 
