@@ -17,6 +17,7 @@
 %define VECTOR_INVALID 12360
 --pos errors
 %define POS_TYPE_MISMATCH 60032
+%define POS_REG_NOT_SET 117368
 %define INVALID_CONFIG 15121
 %define GROUP_MASK_BAD 21018
 --file errors
