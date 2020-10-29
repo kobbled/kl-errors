@@ -5,6 +5,7 @@
 %define ARR_LEN_MISMATCH 12304
 %define INVALID_INDEX 16024
 %define VAR_TOO_BIG 16032
+%define COULD_NOT_CLEAR_ARRAY 7169
 --value errors
 %define VAL_OUT_OF_RNG 16028
 %define VAR_UNINIT 12311
