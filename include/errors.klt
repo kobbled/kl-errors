@@ -31,6 +31,8 @@
 %define PROGRAM_TIMEDOUT 24028
 --tpe errors
 %define TPE_UPDATE_FAILED 112080
+--config errors
+%define INVALID_MOTION_GROUP 112032
 
 CONST
   ER_WARN          = 0 -- warning no change in task execution
