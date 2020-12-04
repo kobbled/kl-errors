@@ -71,4 +71,15 @@ ROUTINE SET_UNINIT_B
     IF STATUS <> 0 THEN POST_ERR(STATUS,'',0,2);ENDIF
   END SET_UNINIT_B
 
+ROUTINE SET_UNINIT_V
+  VAR
+    entry : INTEGER
+    status: INTEGER
+    uninitVEC : ARRAY[1] OF VECTOR
+  BEGIN
+    SET_VAR(entry,progname,varname,uninitVEC[1],STATUS)
+    IF STATUS = 12311 THEN STATUS = 0 ; ENDIF -- 12311 uninitialized data error :-)
+    IF STATUS <> 0 THEN POST_ERR(STATUS,'',0,2);ENDIF
+  END SET_UNINIT_V
+
 
