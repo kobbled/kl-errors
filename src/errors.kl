@@ -82,4 +82,15 @@ ROUTINE SET_UNINIT_V
     IF STATUS <> 0 THEN POST_ERR(STATUS,'',0,2);ENDIF
   END SET_UNINIT_V
 
+ROUTINE SET_UNINIT_F
+  VAR
+    entry : INTEGER
+    status: INTEGER
+    uninitFRM : ARRAY[1] OF XYZWPR
+  BEGIN
+    SET_VAR(entry,progname,varname,uninitFRM[1],STATUS)
+    IF STATUS = 12311 THEN STATUS = 0 ; ENDIF -- 12311 uninitialized data error :-)
+    IF STATUS <> 0 THEN POST_ERR(STATUS,'',0,2);ENDIF
+  END SET_UNINIT_F
+
 
