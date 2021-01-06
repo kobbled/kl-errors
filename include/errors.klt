@@ -33,6 +33,11 @@
 %define TPE_UPDATE_FAILED 112080
 --config errors
 %define INVALID_MOTION_GROUP 112032
+--queue errors
+%define QUEUE_IS_FULL 61001
+%define QUEUE_IS_EMPTY 61002
+%define QUEUE_BAD_SEQUENCE_NO 61003
+%define QUEUE_BAD_SKIP_VALUE 61004
 
 CONST
   ER_WARN          = 0 -- warning no change in task execution
