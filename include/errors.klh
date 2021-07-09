@@ -8,5 +8,8 @@ ROUTINE SET_UNINIT_R(progname : STRING; varname :STRING) FROM errors
 ROUTINE SET_UNINIT_B(progname : STRING; varname :STRING) FROM errors
 ROUTINE SET_UNINIT_V(progname : STRING; varname :STRING) FROM errors
 ROUTINE SET_UNINIT_F(progname : STRING; varname :STRING) FROM errors
+ROUTINE SET_UNINIT_S(progname : STRING; varname :STRING) FROM errors
+
+ROUTINE SET_UNI_ARRS(progname : STRING; varname :STRING; start_i : INTEGER; stop_i : INTEGER) FROM errors
 
 %endif --errors_h

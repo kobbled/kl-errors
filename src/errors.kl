@@ -93,4 +93,32 @@ ROUTINE SET_UNINIT_F
     IF STATUS <> 0 THEN POST_ERR(STATUS,'',0,2);ENDIF
   END SET_UNINIT_F
 
+ROUTINE SET_UNINIT_S
+  VAR
+    entry : INTEGER
+    status: INTEGER
+    uninitS : ARRAY[1] OF STRING[64]
+  BEGIN
+    SET_VAR(entry,progname,varname,uninitS[1],STATUS)
+    IF STATUS = 12311 THEN STATUS = 0 ; ENDIF -- 12311 uninitialized data error :-)
+    IF STATUS <> 0 THEN POST_ERR(STATUS,'',0,2);ENDIF
+  END SET_UNINIT_S
+
+ROUTINE SET_UNI_ARRS
+  VAR
+    i, entry : INTEGER
+    status: INTEGER
+    uninitS : ARRAY[1] OF STRING[64]
+    var_idx : STRING[64]
+  BEGIN
+    FOR i=start_i TO stop_i DO
+      var_idx = varname + '[' + CHR(i + ORD('0', 1)) + ']'
+
+      SET_VAR(entry,progname,var_idx,uninitS[1],STATUS)
+      IF STATUS = 12311 THEN STATUS = 0 ; ENDIF -- 12311 uninitialized data error :-)
+      IF STATUS <> 0 THEN POST_ERR(STATUS,'',0,2);ENDIF
+    ENDFOR
+    
+  END SET_UNI_ARRS
+
 
